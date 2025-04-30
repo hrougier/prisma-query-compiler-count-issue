@@ -1,22 +1,30 @@
 {
   "name": "prisma-query-compiler-issue",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "generate": "prisma generate && tsc prisma/generated/index.ts --module nodenext",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "6.7.0",
+    "@prisma/adapter-pg": "6.7.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "next": "15.3.1"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "prisma": "6.7.0",
+    "typescript": "^5"
+  },
+  "prisma": {
+    "seed": "bun prisma/seed.ts"
   }
 }
